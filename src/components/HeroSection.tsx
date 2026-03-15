@@ -58,12 +58,13 @@ export function HeroSection() {
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
               
-              <button 
+              <a
+                href="#portfolio"
                 className="group border border-zinc-700/50 bg-zinc-900/30 backdrop-blur-sm text-zinc-100 font-semibold text-base px-8 py-3 rounded-lg hover:bg-zinc-800/50 hover:border-blue-500/50 transition-all duration-300 cursor-pointer flex items-center gap-2"
               >
                 <Play className="h-4 w-4 text-blue-400" />
                 Ver Cases
-              </button>
+              </a>
             </div>
 
             {/* Stats */}
