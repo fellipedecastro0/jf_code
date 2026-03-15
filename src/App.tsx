@@ -1,6 +1,6 @@
 import { Navbar } from "./components/Navbar.tsx";
 import { HeroSection } from "./components/HeroSection";
-import { ServicesSection } from "./components/ServiceCard";
+import { ServicesSection } from "./components/ServicesSection.tsx";
 
 export default function App() {
   return (

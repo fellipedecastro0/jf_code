@@ -46,11 +46,12 @@ export function Navbar() {
 
             {/* CTA Button - Right */}
             <div className="hidden md:block">
-              <button 
+              <a href="#contato" 
                 className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-zinc-100 font-semibold text-sm px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer"
               >
                 Orçamento
-              </button>
+              </a>
+              
             </div>
 
             {/* Mobile Menu Button */}
@@ -78,11 +79,11 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <button 
+              <a href="#contato" 
                 className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-zinc-100 font-semibold text-sm px-5 py-2.5 rounded-lg cursor-pointer"
               >
                 Orçamento
-              </button>
+              </a>
             </div>
           </div>
         )}
