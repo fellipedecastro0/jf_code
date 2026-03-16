@@ -1,9 +1,9 @@
-import { Navbar } from "./components/Navbar.tsx";
-import { HeroSection } from "./components/HeroSection";
-import { ServicesSection } from "./components/ServicesSection.tsx";
-import { CasesSection } from "./components/CasesSection.tsx";
-import { TeamSection } from "./components/TeamSection.tsx";
-import { Footer } from "./components/Footer.tsx";
+import { Navbar } from "./components/Navbar"
+import { HeroSection } from "./components/HeroSection"
+import { ServicesSection } from "./components/ServicesSection"
+import { CasesSection } from "./components/CasesSection"
+import { TeamSection } from "./components/TeamSection"
+import { Footer } from "./components/Footer"
 
 export default function App() {
   return (

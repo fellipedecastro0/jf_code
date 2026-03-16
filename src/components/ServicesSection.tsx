@@ -25,7 +25,7 @@ export function ServicesSection() {
   return (
     <section id="servicos" className="relative py-24 lg:py-32 bg-zinc-950 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[128px]" />
       </div>
 
@@ -49,7 +49,9 @@ export function ServicesSection() {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => {
+            const Icon = service.icon
+            return (
             <div
               key={service.title}
               className="group relative rounded-2xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm p-8 hover:border-blue-500/30 hover:bg-zinc-900/50 hover:-translate-y-2 transition-all duration-300"
@@ -60,7 +62,7 @@ export function ServicesSection() {
               <div className="relative z-10">
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-zinc-700/50 flex items-center justify-center mb-6 group-hover:border-blue-500/30 transition-colors duration-300">
-                  <service.icon className="w-7 h-7 text-blue-400" />
+                  <Icon className="w-7 h-7 text-blue-400" />
                 </div>
 
                 {/* Content */}
@@ -78,7 +80,8 @@ export function ServicesSection() {
                 </div>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
 
