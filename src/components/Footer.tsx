@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react"
+import { useState, type FormEvent } from "react"
 import { Send } from "lucide-react"
 
 export function Footer() {
@@ -119,7 +119,7 @@ export function Footer() {
         {/* Direitos autorais */}
         <div className="text-center pt-8 border-t border-zinc-800/50">
           <p className="text-sm text-zinc-500">
-            © 2026 Agência XYZ. Todos os direitos reservados.
+            © 2026 JFCode. Todos os direitos reservados.
           </p>
         </div>
       </div>

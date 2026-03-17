@@ -1,3 +1,18 @@
+# JFCode
+
+Landing page da JFCode — engenharia de software de alta performance.
+
+## Como rodar
+
+```bash
+npm install
+npm run dev
+```
+
+O servidor sobe em **http://localhost:5173**. Se essa porta estiver em uso (por exemplo, outro `npm run dev` aberto), o Vite tenta a próxima (5174, 5175…). Feche outros terminais com o dev server antes de rodar de novo, se quiser usar sempre a 5173.
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

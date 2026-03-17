@@ -4,11 +4,13 @@ const team = [
   {
     name: "Fellipe de Castro",
     role: "Software Engineer",
+    image: "/fellipe.png",
     githubUrl: "https://github.com/fellipedecastro0",
   },
   {
     name: "Jhonathan Magalhães",
     role: "Software Engineer",
+    image: "/jhonathan.png",
     githubUrl: "https://github.com/Johnn216",
   },
 ]
@@ -19,7 +21,7 @@ export function TeamSection() {
       id="equipe"
       className="relative py-24 lg:py-32 bg-zinc-950 overflow-hidden"
     >
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[128px]" />
       </div>
 
@@ -45,6 +47,7 @@ export function TeamSection() {
               key={member.name}
               name={member.name}
               role={member.role}
+              image={member.image}
               githubUrl={member.githubUrl}
             />
           ))}
