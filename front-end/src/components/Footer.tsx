@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react"
+import { useState } from "react"
 import { Send } from "lucide-react"
 
 export function Footer() {
@@ -7,19 +7,52 @@ export function Footer() {
   const [mensagem, setMensagem] = useState("")
   const [emailError, setEmailError] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault()
+    setError(null)
+
     const emailTrimmed = email.trim()
     if (!emailTrimmed) {
       setEmailError(true)
       return
     }
     setEmailError(false)
-    setSubmitted(true)
-    setNome("")
-    setEmail("")
-    setMensagem("")
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("http://localhost:8080/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome,
+          email,
+          mensagem,
+        }),
+      })
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null)
+        const message =
+          (data && (data.message || data.error)) ||
+          "Não foi possível enviar sua mensagem. Tente novamente."
+        throw new Error(message)
+      }
+
+      setSubmitted(true)
+      setNome("")
+      setEmail("")
+      setMensagem("")
+    } catch (err) {
+      console.error(err)
+      setError(err instanceof Error ? err.message : "Erro inesperado ao enviar sua mensagem.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -102,11 +135,18 @@ export function Footer() {
 
             <button
               type="submit"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-zinc-100 font-semibold text-base px-8 py-3 rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-zinc-100 font-semibold text-base px-8 py-3 rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={isSubmitting}
             >
-              Enviar
+              {isSubmitting ? "Enviando..." : "Enviar"}
               <Send className="w-4 h-4" />
             </button>
+
+            {error && (
+              <p className="text-sm text-red-400">
+                {error}
+              </p>
+            )}
 
             {submitted && (
               <p className="text-sm text-green-400">
@@ -119,7 +159,7 @@ export function Footer() {
         {/* Direitos autorais */}
         <div className="text-center pt-8 border-t border-zinc-800/50">
           <p className="text-sm text-zinc-500">
-            © 2026 Agência XYZ. Todos os direitos reservados.
+            © 2026 JFCode. Todos os direitos reservados.
           </p>
         </div>
       </div>

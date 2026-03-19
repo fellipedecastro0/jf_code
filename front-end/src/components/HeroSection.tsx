@@ -3,8 +3,8 @@ import { ArrowRight, Play } from "lucide-react"
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-16">
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Background Effects - pointer-events-none para não bloquear cliques nos links */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Gradient orbs */}
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-500/20 rounded-full blur-[128px]" />
         <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/20 rounded-full blur-[128px]" />
@@ -92,7 +92,7 @@ export function HeroSection() {
               {/* Glow effect behind */}
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-3xl blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
               
-              {/* Main terminal card (AQUI ESTÁ O HOVER) */}
+              {/* Main terminal card */}
               <div className="relative rounded-2xl border border-zinc-800/50 bg-zinc-900/50 backdrop-blur-xl p-1 overflow-hidden transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-blue-500/20 group-hover:border-blue-500/30">
                 {/* Top bar */}
                 <div className="flex items-center gap-2 px-4 py-3 border-b border-zinc-800/50 transition-colors duration-500 group-hover:border-zinc-700/50">
