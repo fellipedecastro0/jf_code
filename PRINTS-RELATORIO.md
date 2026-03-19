@@ -11,6 +11,12 @@ Use estes passos para gerar as capturas de tela que comprovam que o site está r
 5. Tire os prints solicitados:
 
 ### Prints obrigatórios
+<img width="477" height="867" alt="image" src="https://github.com/user-attachments/assets/b082c770-3c26-4c3a-9750-a9a321cd448b" />
+<img width="487" height="883" alt="image" src="https://github.com/user-attachments/assets/8b2cc415-0e1f-4745-930a-b4e548e5d056" />
+<img width="513" height="867" alt="image" src="https://github.com/user-attachments/assets/078af75d-0d37-4f81-be84-64d4158d778c" />
+<img width="477" height="861" alt="image" src="https://github.com/user-attachments/assets/f7d43e5b-f9a2-4728-81ea-8bf067a7586e" />
+
+
 
 | # | O que capturar | Dica |
 |---|----------------|------|
