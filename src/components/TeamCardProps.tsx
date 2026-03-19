@@ -6,6 +6,7 @@ export interface TeamCardProps {
   image?: string
   githubUrl?: string
   linkedinUrl?: string
+  onClick?: () => void
 }
 
 function getInitials(name: string): string {
@@ -21,11 +22,19 @@ export function TeamCard({
   image,
   githubUrl,
   linkedinUrl,
+  onClick,
 }: TeamCardProps) {
   const initials = getInitials(name)
 
   return (
-    <div className="group relative rounded-2xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm p-8 hover:border-blue-500/30 hover:bg-zinc-900/50 transition-all duration-300">
+    <div
+      className="group relative rounded-2xl border border-zinc-800/50 bg-zinc-900/30 backdrop-blur-sm p-0 hover:border-blue-500/30 hover:bg-zinc-900/50 transition-all duration-300 focus-within:border-blue-500/40"
+    >
+      <button
+        type="button"
+        onClick={onClick}
+        className="w-full p-8 flex flex-col items-center text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 rounded-2xl"
+      >
       <div className="flex flex-col items-center text-center">
         <div className="relative mb-6">
           <div className="w-32 h-32 rounded-2xl overflow-hidden border border-zinc-700/50 group-hover:border-blue-500/40 transition-colors flex items-center justify-center bg-gradient-to-br from-zinc-700/80 to-zinc-800/80">
@@ -69,6 +78,7 @@ export function TeamCard({
           )}
         </div>
       </div>
+      </button>
     </div>
   )
 }
