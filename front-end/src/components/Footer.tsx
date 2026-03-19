@@ -10,6 +10,9 @@ export function Footer() {
   const [error, setError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const apiBaseUrl =
+    (import.meta.env.VITE_API_URL as string | undefined) ?? "http://localhost:8080"
+
   async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault()
     setError(null)
@@ -23,7 +26,7 @@ export function Footer() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("http://localhost:8080/api/leads", {
+      const response = await fetch(`${apiBaseUrl}/api/leads`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
